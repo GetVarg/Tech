@@ -1,0 +1,82 @@
+.form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 30px;
+  background-color: #005AFF;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.input {
+  width: 100%;
+  background-color: #FFF;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border: none;
+  box-sizing: border-box;
+}
+
+.botao {
+  width: 100%;
+  background-color: #FFA500;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #005AFF;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.botao:hover {
+  background-color: #e89b00;
+}
+
+.erro {
+  color: #FFD700;
+  margin-top: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+}
+
+.title {
+    font-size: 32;
+    color: #FFA500;
+    margin-bottom: 10px;
+}
+
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.toggle-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid #FFA500;
+  background-color: white;
+  color: #FFA500;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.toggle-btn.active {
+  background-color: #FFA500;
+  color: #005AFF;
+}
