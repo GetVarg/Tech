@@ -1,4 +1,5 @@
 import ServicesCard from "../components/ServicesCard.js";
+import Footer from "../components/Footer.js";
 
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../firebase.js";
@@ -14,13 +15,14 @@ export async function saveServices(uid, item) {
 export default function Home(){
     const { user, loading } = useUser();
     const navigate = useNavigate();
-    user.name
+
     const service = {
         Name: "Lustra chifre",
         Add: "Campinas Hall",
         Profissional: "Gabs",
         Time: new Date("2022-11-26T23:00:00")
     };
+
     if (loading){
       try {
         saveServices(user.uid, service);
@@ -99,14 +101,8 @@ export default function Home(){
         </div>
       </div>
 
-      {/* Navegação inferior */}
-      <div style={styles.footer}>
-        <span>🏠</span>
-        <span>📋</span>
-        <span style={styles.plus}>➕</span>
-        <span>💬</span>
-        <span>👤</span>
-      </div>
+      <Footer />
+
     </div>
   );
 }
