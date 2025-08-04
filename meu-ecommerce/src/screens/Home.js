@@ -1,5 +1,6 @@
 import ServicesCard from "../components/ServicesCard.js";
-import Footer from "../components/Footer.js";
+
+import Footer from '../components/Footer.js';
 
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../firebase.js";
@@ -15,7 +16,7 @@ export async function saveServices(uid, item) {
 
 export default function Home(){
     const { user, loading } = useUser();
-    console.log(user.uid);
+    console.log(user.uid)
     const navigate = useNavigate();
 
     useEffect(() => {

@@ -7,7 +7,7 @@ import { db } from '../firebase';
 import axios from 'axios';
 import { useUser } from "../UserContext.js";
 
-import Footer from '../components/Footer';
+import Footer from '../components/Footer.js';
 
 const Perfil = () => {
   const { user, setUser, loading } = useUser();

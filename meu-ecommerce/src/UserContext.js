@@ -8,37 +8,42 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  console.log("[Contexto] Provider montou");
+
+  const updateUserField = (field, value) => {
+    if (!user) return;
+    setUser((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
+  };
+  
   useEffect(() => {
-    console.log("[Contexto] Provider Inicializou");
     const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
+
       if (firebaseUser) {
-        console.log("[Contexto] Usuário autenticado:", firebaseUser.uid);
         const docRef = doc(db, "Clients", firebaseUser.uid);
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-          console.log("[Contexto] Documento encontrado no Firestore:", docSnap.data());
           setUser({ uid: firebaseUser.uid, ...docSnap.data() });
-        } else {
-          console.log("[Contexto] Documento não encontrado");
+        } 
+        else {
           setUser(null);
         }
-      } else {
-        console.log("[Contexto] Nenhum usuário autenticado");
+      } 
+      else {
         setUser(null);
       }
       setLoading(false);
     });
 
     return () => {
-      console.log("limpando");
-      unsubscribe(); // <- importante para evitar memory leak
+      unsubscribe();
     };
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, setUser, loading }}>
+    <UserContext.Provider value={{ user, updateUserField,setUser, loading }}>
       {children}
     </UserContext.Provider>
   );
