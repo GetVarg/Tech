@@ -1,0 +1,133 @@
+.perfil-container {
+  height: 100vh;
+  flex-direction: column;
+  padding: 30px;
+  background-color: #4a55ff;
+  color: white;
+  font-family: sans-serif;
+  border-radius: 20px;
+  text-align: center;
+  align-items: center;
+}
+
+.avaliacoes{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* ou um valor fixo */
+  padding: 10px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  color: #4a55ff;
+  cursor: pointer;
+}
+
+
+.seta {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.footerContainer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  background-color: transparent;
+  z-index: 1000;
+}
+
+.perfil-topo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.perfil-logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+.perfil-lema {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.perfil-usuario {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.perfil-foto,
+.perfil-foto-container {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  border: 1px solid #FFA500;
+}
+
+.upload-button,
+.submit-button {
+  background-color: #FFA500;
+  color: #005AFF;
+  border: none;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;    
+}
+
+.upload-container{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-upload-foto {
+    background-color: transparent;
+}
+
+.perfil-nome-tipo {
+  text-align: left;
+}
+
+.perfil-nome {
+  font-size: 20px;
+  margin: 0;
+  color: #fff;
+}
+
+.perfil-tipo {
+  font-size: 14px;
+  color: #FFA500;
+  font-weight: bold;
+}
+
+.perfil-info-blocos {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.perfil-info-bloco {
+  background-color: #fff;
+  color: #005AFF;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: left;
+  font-weight: bold;
+}

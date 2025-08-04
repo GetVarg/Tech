@@ -1,0 +1,105 @@
+.reviews-container {
+  padding: 24px;
+  background-color: #4b3df2;
+  min-height: 100vh;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  font-weight: bold;
+  background-color: white;
+  color: #4b3df2;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s;
+}
+
+.back-button:hover {
+  transform: scale(1.1);
+}
+
+.reviews-tabs {
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 16px;
+}
+
+.reviews-tabs button {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: 500;
+  font-size: 15px;
+  padding-bottom: 6px;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.reviews-tabs button.active {
+  border-bottom: 3px solid #ffffff;
+  font-weight: 600;
+}
+
+.divider {
+  border: none;
+  border-top: 1.5px solid #ffffff;
+  margin: 16px 0;
+  opacity: 0.4;
+}
+
+.reviews-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.reviews-header h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.reviews-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bar-row span {
+  font-size: 14px;
+  width: 60px;
+}
+
+.bar-container {
+  flex: 1;
+  height: 10px;
+  background-color: #e0e0e0;
+  border-radius: 10px;
+  margin: 0 12px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background-color: #fbbf24;
+  transition: width 0.3s ease-in-out;
+}

@@ -6,6 +6,7 @@ import { db } from "../firebase.js";
 import { useUser } from "../UserContext.js";
 import './Home.js';
 import { useNavigate } from "react-router";
+import { useEffect } from "react";
 
 export async function saveServices(uid, item) {
     const ref = collection(db, "Clients", uid, "NextServices");
@@ -14,7 +15,15 @@ export async function saveServices(uid, item) {
 
 export default function Home(){
     const { user, loading } = useUser();
+    console.log(user.uid);
     const navigate = useNavigate();
+
+    useEffect(() => {
+      if (!loading && !user){
+        console.log(loading, user);
+        navigate('/');
+      }
+    }, [user, loading, navigate]);
 
     const service = {
         Name: "Lustra chifre",

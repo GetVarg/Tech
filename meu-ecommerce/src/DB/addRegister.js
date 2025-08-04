@@ -4,26 +4,31 @@ import { auth, db } from '../firebase';
 import { collection, query, where, getDocs } from "firebase/firestore";
 
 function isValidCPF(cpf) {
-  cpf = cpf.replace(/[^\d]+/g, ''); // Remove pontos e traços
+  cpf = cpf.replace(/[^\d]+/g, '');
 
   if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
 
-  let sum = 0;
-  for (let i = 0; i < 9; i++) sum += parseInt(cpf.charAt(i)) * (10 - i);
-  let rev = 11 - (sum % 11);
-  if (rev === 10 || rev === 11) rev = 0;
-  if (rev !== parseInt(cpf.charAt(9))) return false;
+  let soma = 0;
+  for (let i = 0; i < 9; i++) {
+    soma += parseInt(cpf[i]) * (10 - i);
+  }
 
-  sum = 0;
-  for (let i = 0; i < 10; i++) sum += parseInt(cpf.charAt(i)) * (11 - i);
-  rev = 11 - (sum % 11);
-  if (rev === 10 || rev === 11) rev = 0;
-  if (rev !== parseInt(cpf.charAt(10))) return false;
+  let resto = (soma * 10) % 11;
+  if (resto === 10 || resto === 11) resto = 0;
+  if (resto !== parseInt(cpf[9])) return false;
 
-  return true;
+  soma = 0;
+  for (let i = 0; i < 10; i++) {
+    soma += parseInt(cpf[i]) * (11 - i);
+  }
+
+  resto = (soma * 10) % 11;
+  if (resto === 10 || resto === 11) resto = 0;
+
+  return resto === parseInt(cpf[10]);
 }
 
-export default async function handleRegister(name, password, email, cpfcnpj){
+export default async function handleRegister(name, password, email, cpfcnpj, telefone, tipoUsuario){
     try {
         if (!isValidCPF(cpfcnpj)) return "CPF inválido";
 
@@ -32,7 +37,6 @@ export default async function handleRegister(name, password, email, cpfcnpj){
         const querySnapshot = await getDocs(q);
 
         if (!querySnapshot.empty) {
-            console.log("CPF já cadastrado");
             return "CPF já cadastrado";
         } else{
             console.log(querySnapshot);
@@ -46,10 +50,11 @@ export default async function handleRegister(name, password, email, cpfcnpj){
             nome: name,
             email: email,
             cpfcnpj: cpfcnpj,
-            NextServices: [],
+            telefone: telefone,
+            tipoUsuario: tipoUsuario,
         })
         return true
     } catch(error) {
-        return error.message;
+        return false;
     }
 }

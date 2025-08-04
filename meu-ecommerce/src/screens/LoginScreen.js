@@ -4,17 +4,6 @@ import { auth } from '../firebase';
 import { useNavigate } from 'react-router-dom';
 import './LoginScreen.css';
 
-import {
-  KeyboardAvoidingView,
-  Platform,
-  View,
-  Text,
-  TextInput,
-  Image,
-  TouchableOpacity,
-  ActivityIndicator
-} from 'react';
-
 export default function Login() {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
@@ -29,6 +18,8 @@ export default function Login() {
 
     try {
       const login = await signInWithEmailAndPassword(auth, email, senha);
+      console.log("[Login] Auth user UID:", login.user.uid);
+      
       navigate('/home');
     } catch (err) {
         setErro(err.message);

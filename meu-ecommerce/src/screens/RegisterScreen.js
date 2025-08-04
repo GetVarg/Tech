@@ -21,12 +21,12 @@ export default function Register() {
       return;
     }
 
-    const reg = await handleRegister(name.trim(), password, email.trim(), cpfcnpj.trim());
-    if (reg) {
-      navigate('/');
-    } else {
+    const reg = await handleRegister(name.trim(), password, email.trim(), cpfcnpj.trim(), telefone.trim(), tipoUsuario);
+    if (!reg || reg === "CPF inválido" || reg === "CPF já cadastrado") {
       console.log(reg);
       setErro(reg.error);
+    } else {
+      navigate('/');
     }
   };
 
