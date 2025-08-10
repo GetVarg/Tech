@@ -7,6 +7,7 @@ import Register from "./screens/RegisterScreen";
 import Home from "./screens/Home";
 import Perfil from './screens/Perfil';
 import Reviews from './screens/Reviews';
+import Solicitacao from './screens/Solicitacao';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path='/perfil' element={<Perfil />} />
             <Route path='/reviews' element={<Reviews />} />
+            <Route path='/solicitacao' element={<Solicitacao />} />
           </Routes>
       </Router>
     </UserProvider>

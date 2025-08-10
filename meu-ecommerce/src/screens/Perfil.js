@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { data, UNSAFE_getTurboStreamSingleFetchDataStrategy, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 import './Perfil.css';
 import logo from '../assets/ajeita-capybara.png';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';

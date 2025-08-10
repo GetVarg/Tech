@@ -11,7 +11,7 @@ export default function Footer() {
     (async () => {
       const snapshot = await getReviews(user.uid);
 
-      console.log("Tem algo: ", snapshot.docs.map(doc => doc.data()));
+      // console.log("Tem algo: ", snapshot.docs.map(doc => doc.data()));
 
       updateUserField("reviews", snapshot.docs.map(doc => doc.data()));
       console.log("Avaliações do usuário:", user?.reviews);
@@ -36,7 +36,7 @@ export default function Footer() {
         🏠
       </button>
       <span>📋</span>
-      <span style={styles.plus}>➕</span>
+      <button style={styles.plus} onClick={() => navigate('/solicitacao')}>➕</button>
       <span>💬</span>
       <button
         onClick={handlePerfilClick}
@@ -66,7 +66,11 @@ const styles = {
     color: '#6A1B9A',
   },
     plus: {
-    fontSize: '32px',
-    color: '#F44336',
+      all: 'unset',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontSize: '32px', /* caso precise ajustar tamanho */
+      cursor: 'pointer',
   },
 }

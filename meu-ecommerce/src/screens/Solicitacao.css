@@ -1,0 +1,83 @@
+.solicitacao-container {
+  padding: 24px;
+  background-color: #4b3df2;
+  min-height: 100vh;
+  color: white;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dropdown{
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background-color: #42daf5;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.DescricaoBox {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background-color: #42daf5;
+}
+
+.solicitacao-container h2 {
+  margin-bottom: 24px;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.solicitacao-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 400px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  color: #333;
+}
+
+.solicitacao-form input[type="text"],
+.solicitacao-form textarea {
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.solicitacao-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.solicitacao-form input[type="file"] {
+  font-size: 14px;
+  color: #333;
+}
+
+.solicitacao-form button {
+  padding: 12px;
+  background-color: #4b3df2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.solicitacao-form button:disabled {
+  background-color: #a6a6a6;
+  color: #eeeeee;
+  cursor: not-allowed;
+}
+
+.solicitacao-form button:hover {
+  background-color: #392cd4;
+}
