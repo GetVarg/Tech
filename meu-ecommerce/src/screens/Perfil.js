@@ -53,6 +53,10 @@ const Perfil = () => {
     navigate('/reviews');
   };
 
+  const handleServicos = () => {
+    navigate('/meuservicos');
+  }
+
   const handleFotoChange = async (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -142,10 +146,14 @@ const Perfil = () => {
       <div className="perfil-info-blocos">
         <div className="perfil-info-bloco">{user.email}</div>
         <div className="perfil-info-bloco">{user.cpfcnpj}</div>
-        {/* <div className="perfil-info-bloco">{user.telefone}</div> */}
-        <div className="perfil-info-bloco">61993405115</div>
+
+        <div className="perfil-info-bloco">{user.telefone}</div>
         <button className='avaliacoes' onClick={handleReviews}>
             <span>Avaliações</span>
+            <span className="seta">{'>'}</span>
+        </button>
+        <button className='avaliacoes' onClick={handleServicos}>
+            <span>Serviços</span>
             <span className="seta">{'>'}</span>
         </button>
       </div>
